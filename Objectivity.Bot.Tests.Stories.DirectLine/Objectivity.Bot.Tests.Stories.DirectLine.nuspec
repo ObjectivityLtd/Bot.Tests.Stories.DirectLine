@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Objectivity.Bot.Tests.Stories.DirectLine</id>
+        <version>0.0.1</version>
+        <authors>Objectivity Bespoke Software Specialists</authors>
+        <licenseUrl>https://opensource.org/licenses/mit-license.php</licenseUrl>
+        <projectUrl>https://github.com/ObjectivityLtd/Bot.Tests.Stories.DirectLine</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Test stories player utilizing Direct Line</description>
+        <tags>C#, bot.framework, DirectLine</tags>
+        <dependencies>
+			<dependency id="Objectivity.Bot.DirectLine" version="0.0.1" />
+			<dependency id="Objectivity.Bot.Tests.Stories" version="0.0.5" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\Objectivity.Bot.Tests.Stories.DirectLine.dll" target="lib\Objectivity.Bot.Tests.Stories.DirectLine.dll" />
+    </files>
+</package>

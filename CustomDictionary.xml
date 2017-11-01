@@ -1,0 +1,32 @@
+<!-- https://msdn.microsoft.com/en-us/library/bb514188.aspx -->
+<Dictionary>
+  <Words>
+    <!--
+    <Unrecognized>
+      <Word></Word>
+    </Unrecognized>
+    -->
+    <Recognized>
+      <Word>cors</Word>
+      <Word>api</Word>
+      <Word>jsn</Word>>
+    </Recognized>
+    <!--
+    <Deprecated>
+      <Term PreferredAlternate=""></Term>
+    </Deprecated>
+    <Compound>
+      <Term CompoundAlternate=""></Term>
+    </Compound>
+    <DiscreteExceptions>
+      <Term></Term>
+    </DiscreteExceptions>
+    -->
+  </Words>
+  <Acronyms>
+    <CasingExceptions>
+      <Acronym>IoC</Acronym>
+      <Acronym>Io</Acronym>
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>
