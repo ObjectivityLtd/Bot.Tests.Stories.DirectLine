@@ -99,34 +99,47 @@
         {
             var storyFrame = step.StoryFrame;
 
-            var isUserFrame = storyFrame.Actor == Actor.User;
-            var isBotFrame = storyFrame.Actor == Actor.Bot;
-
-            if (isUserFrame)
+            switch (storyFrame.Actor)
             {
-                switch (storyFrame.ComparisonType)
-                {
-                    case ComparisonType.TextExact:
-                        await this.ProcessUserFrameTextExact(storyFrame, cancellationToken);
-                        break;
-                    case ComparisonType.Option:
-                        await this.ProcessUserFrameOption(storyFrame, cancellationToken);
-                        break;
-                }
-                
-            }
-            else if (isBotFrame)
-            {
-                switch (storyFrame.ComparisonType)
-                {
-                    case ComparisonType.TextExact:
-                        this.ProcessBotFrameTextExact(storyFrame);
-                        break;
+                case Actor.User:
+                    switch (storyFrame.ComparisonType)
+                    {
+                        case ComparisonType.TextExact:
+                            await this.ProcessUserFrameTextExact(storyFrame, cancellationToken);
+                            break;
+                        case ComparisonType.Option:
+                            await this.ProcessUserFrameOption(storyFrame, cancellationToken);
+                            break;
+                        case ComparisonType.TextMatchRegex:
+                        case ComparisonType.AttachmentListPresent:
+                        case ComparisonType.TextExactWithSuggestions:
+                        case ComparisonType.TextMatchRegexWithSuggestions:
+                            throw new NotImplementedException(); //TODO: Handle missing cases
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(storyFrame.ComparisonType));
+                    }
+                    break;
+                case Actor.Bot:
+                    switch (storyFrame.ComparisonType)
+                    {
+                        case ComparisonType.TextExact:
+                            this.ProcessBotFrameTextExact(storyFrame);
+                            break;
 
-                    case ComparisonType.AttachmentListPresent:
-                        this.ProcessBotFrameListPresent(storyFrame);
-                        break;
-                }
+                        case ComparisonType.AttachmentListPresent:
+                            this.ProcessBotFrameListPresent(storyFrame);
+                            break;
+                        case ComparisonType.TextMatchRegex:
+                        case ComparisonType.Option:
+                        case ComparisonType.TextExactWithSuggestions:
+                        case ComparisonType.TextMatchRegexWithSuggestions:
+                            throw new NotImplementedException(); //TODO: Handle missing cases
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(storyFrame.ComparisonType));
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(storyFrame.Actor));
             }
         }
 
