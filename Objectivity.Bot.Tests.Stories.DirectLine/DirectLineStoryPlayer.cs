@@ -7,10 +7,10 @@
     using System.Threading.Tasks;
     using Microsoft.Bot.Connector.DirectLine;
     using Newtonsoft.Json.Linq;
-    using Objectivity.Bot.DirectLine.DirectLine;
-    using Objectivity.Bot.DirectLine.Messenger;
-    using Objectivity.Bot.Tests.Stories.Player;
-    using Objectivity.Bot.Tests.Stories.StoryModel;
+    using Bot.DirectLine.DirectLine;
+    using Bot.DirectLine.Messenger;
+    using Player;
+    using StoryModel;
     using Xunit;
 
     public class DirectLineStoryPlayer : IStoryPlayer
@@ -132,7 +132,10 @@
 
         private void ProcessBotFrameTextExact(IStoryFrame storyFrame)
         {
-            //Thread.Sleep(1000);
+            if (storyFrame == null)
+            {
+                throw new ArgumentNullException(nameof(storyFrame));
+            }
 
             this.RemoveTypingMessages();
 
