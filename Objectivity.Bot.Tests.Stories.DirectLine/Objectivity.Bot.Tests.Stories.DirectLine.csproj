@@ -81,8 +81,8 @@
     <Reference Include="Objectivity.Bot.DirectLine, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Objectivity.Bot.DirectLine.0.0.1\lib\net461\Objectivity.Bot.DirectLine.dll</HintPath>
     </Reference>
-    <Reference Include="Objectivity.Bot.Tests.Stories, Version=0.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Objectivity.Bot.Tests.Stories.0.0.5\lib\net461\Objectivity.Bot.Tests.Stories.dll</HintPath>
+    <Reference Include="Objectivity.Bot.Tests.Stories, Version=0.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Objectivity.Bot.Tests.Stories.0.0.6\lib\net461\Objectivity.Bot.Tests.Stories.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

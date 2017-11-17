@@ -125,11 +125,12 @@
                         case ComparisonType.TextExact:
                             this.ProcessBotFrameTextExact(storyFrame);
                             break;
-
                         case ComparisonType.AttachmentListPresent:
                             this.ProcessBotFrameListPresent(storyFrame);
                             break;
                         case ComparisonType.TextMatchRegex:
+                            this.ProcessBotFrameTextMatchRegex(storyFrame);
+                            break;
                         case ComparisonType.Option:
                         case ComparisonType.TextExactWithSuggestions:
                         case ComparisonType.TextMatchRegexWithSuggestions:
@@ -176,6 +177,17 @@
             }
 
             this.latestOptions = listJson.SelectToken("buttons").Select(item => item["value"].ToString()).ToArray();
+
+            this.receivedMessages.Remove(message);
+        }
+
+        private void ProcessBotFrameTextMatchRegex(IStoryFrame storyFrame)
+        {
+            var message = this.receivedMessages.FirstOrDefault();
+
+            Assert.NotNull(message);
+            Assert.Equal("message", message.Type);
+            Assert.Matches(storyFrame.Text, message.Text);
 
             this.receivedMessages.Remove(message);
         }
